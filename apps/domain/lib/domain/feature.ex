@@ -16,6 +16,6 @@ defmodule Domain.Feature do
     {:ok, %Feature{name: "example", enabled: true, actors: MapSet.new, groups: MapSet.new}}
   """
   def new(name, enabled \\ true) when is_binary(name) and is_boolean(enabled) do
-    {:ok, %Feature{name: name, enabled: enabled, actors: MapSet.new , groups: MapSet.new}}
+    {:ok, %Feature{name: name, enabled: enabled, actors: MapSet.new(), groups: MapSet.new()}}
   end
 end
