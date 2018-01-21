@@ -1,0 +1,29 @@
+use case, to answer this question:
+
+is this actor allowed to use this feature?
+
+
+Abilities:
+
+1. enable/disable feature
+2. allow actor for the feature
+3. create group for actors
+4. allow group for the feature
+
+Ultimately, the relationship is between actor and feature for the question above to be answered.
+
+Two options when groups comes into play:
+
+1. resolve the allowed users for features on write
+    - expensive writes
+    - consumes more memory? (because have to load all users, but just their identifier)
+    + cheap reads
+
+2. resolve the allowed users for features on read
+    - makes read expensive
+    + low memory usage? (because just following the graph/nodes)
+
+Depending on the demographic of the answer, if the answer is No a lot of the times (means, relative small ratio of allowed actors),
+then it might be cost effective to use a bloomfilter; small memory footprint, 0% false negative answer and cool.
+
+After allowing success path, allow adding negation, which mean, negate the users or groups
