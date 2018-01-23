@@ -44,4 +44,21 @@ defmodule Domain.Feature do
   def add_actor(%Feature{} = feature, %Actor{} = actor) do
     {:ok, update_in(feature.actors, &MapSet.put(&1, actor))}
   end
+
+  @doc """
+  Check if actor is allowed to use feature
+
+  ## Examples
+    iex> {:ok, feature} = Feature.new("example")
+    iex> {:ok, actor_a} = Actor.new("a")
+    iex> {:ok, actor_b} = Actor.new("b")
+    iex> {:ok, feature} = Feature.add_actor(feature, actor_a)
+    iex> Feature.actor_allowed? feature, actor_a
+    true
+    iex> Feature.actor_allowed? feature, actor_b
+    false
+  """
+  def actor_allowed?(%Feature{} = feature, %Actor{} = actor) do
+    MapSet.member? feature.actors, actor
+  end
 end
