@@ -1,4 +1,4 @@
-defmodule Domain.Application do
+defmodule FeatureToggle.Domain.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,13 +8,13 @@ defmodule Domain.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Starts a worker by calling: Domain.Worker.start_link(arg)
-      # {Domain.Worker, arg},
+      # Starts a worker by calling: FeatureToggle.Domain.Worker.start_link(arg)
+      # {FeatureToggle.Domain.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Domain.Supervisor]
+    opts = [strategy: :one_for_one, name: FeatureToggle.Domain.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

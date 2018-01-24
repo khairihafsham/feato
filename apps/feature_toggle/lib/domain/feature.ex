@@ -1,6 +1,6 @@
-defmodule Domain.Feature do
+defmodule FeatureToggle.Domain.Feature do
   alias __MODULE__
-  alias Domain.Actor
+  alias FeatureToggle.Domain.Actor
 
   @enforce_keys [:name, :enabled, :actors]
   defstruct [:name, :enabled, :actors]

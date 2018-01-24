@@ -1,4 +1,4 @@
-defmodule Domain.Actor do
+defmodule FeatureToggle.Domain.Actor do
   alias __MODULE__
 
   @enforce_keys [:name]

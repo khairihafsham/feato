@@ -1,9 +1,9 @@
-defmodule Domain.MixProject do
+defmodule FeatureToggle.Domain.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :domain,
+      app: :feature_toggle,
       version: "0.1.0",
       build_path: "../../_build",
       config_path: "../../config/config.exs",
@@ -19,7 +19,7 @@ defmodule Domain.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Domain.Application, []}
+      mod: {FeatureToggle.Domain.Application, []}
     ]
   end
 
